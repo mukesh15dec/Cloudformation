@@ -1,0 +1,23 @@
+#Create a new user without paramter 
+
+Resources:
+  NoramUser:
+    Type: AWS::IAM::User
+    Properties:
+      UserName : demo1
+      ManagedPolicyArns:
+       - arn:aws:iam::aws:policy/ReadOnlyAccess
+      Tags:
+       - Key: "CostCenter"
+         Value: "NORAM2_LAB"    
+  Noramgroup:
+    Type: AWS::IAM::Group
+    Properties:
+     GroupName: noram2
+  AddUserToGroup:
+    Type: AWS::IAM::UserToGroupAddition
+    Properties:
+     GroupName: noram2
+     Users:
+#     - existinguser1
+     - !Ref NoramUser

@@ -1,0 +1,8 @@
+#Create a new Group without paramter 
+
+Resources:
+  Noramgroup:
+    Type: AWS::IAM::Group
+    Properties:
+     GroupName: noram2
+    
